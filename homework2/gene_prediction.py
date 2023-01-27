@@ -88,18 +88,9 @@ def main():
       for pos in all_stopless_positions:
         if i == 0:
           pos -= 3
-#j        if i == 1: 
-#j          pos = len(genome) - pos
         gene_exists.append(find_gene(pos, strands[i], gff))
         
-
-#  print(all_stopless_lengths)
-#  print(all_stopless_positions)
-#  print(gene_exists)
   print("\n{} genes are annotated out of {} predicted: {:.2f}%".format(sum(gene_exists),len(gene_exists),100*sum(gene_exists)/len(gene_exists)))
 
-  # check gtf file for gene annotation
-  # include commands to download these files
- 
 
 main()
