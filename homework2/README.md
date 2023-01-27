@@ -1,4 +1,4 @@
-# Homework 1, Problem 2 Instructions
+# Homework 2, Problem 2 Instructions
 
 ## Download assignment files
 
