@@ -10,13 +10,13 @@
 THRESH=1600
 FASTA="e_coli/sequence.fasta"
 GFF="e_coli/sequence.gff3"
-to_run="python3 gene_prediction.py --fasta ${FASTA} --thresh ${THRESH} --gff ${GFF}"
+TO_RUN="python3 gene_prediction.py --fasta ${FASTA} --gff ${GFF} --thresh ${THRESH} "
 
 echo 
 echo "SCRIPT BEGINS"
 date
-echo $to_run
-eval $to_run
+echo $TO_RUN
+eval $TO_RUN
 date
 echo "SCRIPT ENDS"
 echo 
