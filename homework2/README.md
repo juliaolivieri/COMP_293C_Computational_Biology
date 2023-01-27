@@ -98,7 +98,7 @@ Next there are some `echo` commands to print to the screen marking the beginning
 
 ## Submiting your first job
 
-Now that we understand what's going on in this script, we're ready to submit it to the cluster! You can do this using the following command:
+Now that we understand what's going on in this script, we're ready to submit it to the cluster! You can do this using the following command (make sure you're in the `homework2` directory):
 
 `$ sbatch run_gene_pred.sbatch`
 
@@ -132,11 +132,11 @@ We can see that this is the output we got from running on the command line, with
 
 Now, we know what the result of the script is when `thresh = 1600`. But what happens when we change that number? We can edit this value in the script, and then re-submit to see our new results. 
 
-You can use the following command to open the file with a simple screen-based text editor:
+You can use the following command to open the file with a simple screen-based text editor (make sure you're in the `homework2` directory - you may have to run `cd ..` to get back there):
 
 `$ nano run_gene_pred.sbatch` 
 
-Use the arrow keys to move to where we set `THRESH=1600`. Then you can change this value to something else (for example, 1000). Press the CONTROL and X keys at the same time to exit. It will ask whether you want to save at the bottom of the screen: press Y for yes, and then press enter. You have now edited the file. Here is a "beginner's guide to nano" if it's helpful: https://www.howtogeek.com/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/.
+Use the arrow keys to move to where we set `THRESH=1600`. Then you can change this value to something else (for example, 1000). Press the CONTROL and X keys at the same time to exit. It will ask whether you want to save at the bottom of the screen: press Y for yes, and then press enter. You have now edited the file. Here is a "beginner's guide to nano" if you want additional guidance for how to use nano: https://www.howtogeek.com/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/.
 
 Note: There are other more sophisticated screen-based text editors as well, but they have much steeper learning curves. If you're interested in trying one out, I suggest the "vim" editor. To run through a tutorial of vim, just type `vimtutor` and then press enter on the command line. Follow the instructions on the screen to complete the tutorial.
 
