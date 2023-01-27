@@ -4,7 +4,7 @@ import pandas as pd
 
 def get_args():
     """Read in fasta path from command line
-    Example usage: python3 gene_prediction.py --fasta ../e_coli/sequence.fasta --thresh 1000 --gff ../e_coli/sequence.gff3"""
+    Example usage: python3 gene_prediction.py --fasta e_coli/sequence.fasta --thresh 1000 --gff e_coli/sequence.gff3"""
     parser = argparse.ArgumentParser()
     parser.add_argument("--fasta", help="path to fasta file", required=True)
     parser.add_argument("--gff", help="path to gff file", required=True)
@@ -73,7 +73,7 @@ def main():
   strands = ["+","-"]
 
   for base in ["A","T","G","C"]:
-    print("fraction {}: {}".format(base,genome.count(base)/len(genome)))
+    print("fraction {}: {:.4f}".format(base,genome.count(base)/len(genome)))
 
   all_stopless_positions = []
   all_stopless_lengths = []
