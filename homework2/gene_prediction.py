@@ -1,6 +1,5 @@
 import argparse
 import math
-import pandas as pd
 
 def get_args():
     """Read in fasta path from command line
@@ -24,9 +23,15 @@ def read_fasta(fasta):
     return seqs
 
 def read_gff(gff_file):
-  gff = pd.read_csv(gff_file,sep="\t",skiprows=5,names=["seqname", "source", "feature", "start", "end", "score", "strand", "frame","attribute"])
-  gff = gff[gff["feature"] == "CDS"]
-  return gff
+  intervals = []
+  f = open(gff_file, "r")
+  for line in f.readlines():
+      if line[0] != "#" and line != '\n':
+          vals = line[:-1].split("\t")
+          if (vals[2] == "CDS") & (vals[6] == "+"):
+              intervals.append((int(vals[3]),int(vals[4])))
+  f.close()
+  return intervals
 
 def find_stopless_lengths(seq, thresh):
   stops = ["TAG", "TGA", "TAA"]
@@ -54,19 +59,23 @@ def get_rev_comp(seq):
   rev_seq = rev_seq.replace("C","g")
   return rev_seq.upper()
 
-def find_gene(position, strand, gff):
-  temp = gff[(gff["start"] < position) & (gff["end"] > position) & (gff["strand"] == strand)]
-  if temp.shape[0] == 0:
-    return False
-  else:
-    return True
+def find_gene(position, strand, intervals):
+  for interval in intervals:
+      if (position >= interval[0]) and (position <= interval[1]):
+          return True
+  return False
+#  temp = gff[(gff["start"] < position) & (gff["end"] > position) & (gff["strand"] == strand)]
+#  if temp.shape[0] == 0:
+#    return False
+#  else:
+#    return True
 
 def main():
   args = get_args()
   seqs = read_fasta(args.fasta)
   genome = "".join(seqs).upper()
   print("genome length:",len(genome))
-  gff = read_gff(args.gff)
+  intervals = read_gff(args.gff)
   print("beginning of genome:",genome[:100])
   
   genome_strands = [genome, get_rev_comp(genome)]
@@ -88,7 +97,7 @@ def main():
       for pos in all_stopless_positions:
         if i == 0:
           pos -= 3
-        gene_exists.append(find_gene(pos, strands[i], gff))
+        gene_exists.append(find_gene(pos, strands[i], intervals))
         
   print("\n{} genes are annotated out of {} predicted: {:.2f}%".format(sum(gene_exists),len(gene_exists),100*sum(gene_exists)/len(gene_exists)))
 
