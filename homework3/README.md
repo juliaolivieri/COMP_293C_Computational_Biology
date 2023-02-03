@@ -2,7 +2,7 @@
 
 In this problem we are going to install Anaconda onto the cluster, in preparation for homework 4. 
 
-Anaconda is a package manager. Have you ever had a situation while coding where you tried downloading a package, but it conflicted with a package you already had downloaded, and you didn't know how to resolve the issues without it getting messy? Package managers help with these situations by allowing you to install exactly the packages you need into a specific "environment," and allowing multiple "environments" that are kept separate from each other, so you can jump in and out of them as needed.
+Anaconda is a package manager. Have you ever had a situation while coding where you tried downloading a package, but it conflicted with a package you already had downloaded, and you didn't know how to resolve the issues without it getting messy? Package managers help with these situations by allowing you to install exactly the packages you need into a specific "environment." Environments are kept separate from each other, so you can jump in and out of them as needed.
 
 ## Installing Anaconda
 
@@ -12,7 +12,7 @@ Once you're in `COMP_293C_Computational_Biology`, you'll need to run a command t
 
 `$ git pull` 
 
-If you use `ls`, you should be able to see that a directory called `homework3` has appeared in the current directory. Use `cd` to enter this directory.
+If you use `ls`, you should be able to see that a directory called `homework3` has appeared in the current directory. Use `cd` to enter this directory (`cd homework3`).
 
 This directory should contain a file called `install_anaconda.sh`. This is a bash script that contains instructions for installing Anaconda (feel free to check it out with the `less` command). To run the bash script, use the following command:
 
