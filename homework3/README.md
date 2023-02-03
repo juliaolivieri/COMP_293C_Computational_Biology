@@ -97,6 +97,18 @@ Similarly, try:
 
 This should show the `help` information for `bowtie2`. Again, feel free to scroll through.
 
-Finally, we are going to deactivate our environment.
+Finally, we are going to deactivate our environment using the following command:
 
+`$ conda deactivate`
 
+Now that we've deactivated the environment, the packages we just loaded aren't accessible. You can check this by running 
+
+`$ blastn -h`
+
+This is the magic of conda environments! You can have multiple environments, each of which has exactly what you need for the given project. We'll try out using the environment you created today in the next assignment.
+
+As evidence that you completed this problem, run the following command and submit a screenshot of the output in your assignment:
+
+`$ conda list -n alignment_env | head`
+
+This command lists all the packages loaded in the given environment (and `head` causes it to only print the first 10 lines).
