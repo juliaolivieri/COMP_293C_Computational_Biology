@@ -61,7 +61,7 @@ Type `yes` and press ENTER. Once it finishes running, anaconda should be install
 
 Now that we've installed Anaconda, let's try creating our first environment. 
 
-Input the following command to create an environment called `anaconda_env` that has Python3 loaded into it:
+Input the following command to create an environment called `alignment_env` that has Python3 loaded into it:
 
 `$ conda create --name alignment_env python=3`
 
