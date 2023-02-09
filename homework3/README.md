@@ -65,6 +65,8 @@ Input the following command to create an environment called `anaconda_env` that 
 
 `$ conda create --name alignment_env python=3`
 
+If this gives an error: Try running `source ~/.bashrc` and then running the above command again.
+
 This may take a few minutes to run. You will need to press `y` to proceed.
 
 To start using this environment after it's created, use the command:
