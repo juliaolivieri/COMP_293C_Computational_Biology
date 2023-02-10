@@ -22,7 +22,7 @@ We'll be aligning sequences to this chromosome with BLAST for this problem. To s
 
 `$ sbatch run_setup.sbatch`
 
-It should only take a few seconds to run. There should now be output in the `job_output` directory, as well as additional files in the `dbs` directory.
+It should only take a few seconds to run. There should now be output in the `job_output` directory, as well as additional files in the `dbs` directory. The `dbs` directory now contains processed files based on `c_elegans_chr1.fa` that makes it easy to search.
 
 We are now ready to proceed with the assignment.
 
