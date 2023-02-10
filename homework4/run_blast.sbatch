@@ -7,20 +7,34 @@
 #SBATCH --nodes=1
 ##SBATCH --mem=50M
 
+SEED_LEN=18
+SEQ_ERR=0.01
+
 date
 
+# load conda environment
 source ~/.bashrc
 conda activate alignment_env
 
-WORD=11
-SEQ_ERR=0.0
+# generate reads
+a="python gen_reads.py --in_file dbs/c_elegans_chr1.fa --error_rate ${SEQ_ERR}"
+echo
+echo $a
+eval $a
+echo
 
-python gen_reads.py --in_file dbs/c_elegans_chr1.fa --error_rate ${SEQ_ERR}
+# run BLAST
+b="blastn -query rand_reads.fa  -db dbs/c_elegans_chr1.fa -outfmt 6 -out outputs/seedlen_${SEED_LEN}_err_${SEQ_ERR}_temp.txt -word_size ${SEED_LEN}"
+echo $b
+eval $b
+echo
 
-blastn -query rand_reads.fa  -db dbs/c_elegans_chr1.fa -outfmt 6 -out outputs/wordlen_${WORD}_err_${SEQ_ERR}_temp.txt -word_size ${WORD}
-awk -v OFS='\t' '{ print $1, $2, $3, $4, $5, $9, $10}' outputs/wordlen_${WORD}_err_${SEQ_ERR}_temp.txt > outputs/wordlen_${WORD}_err_${SEQ_ERR}.txt
-sed -i '1s/^/query acc.ver\tsubject acc.ver\t% identity\talignment length\tmismatches\ts. start\ts. end\n/' outputs/wordlen_${WORD}_err_${SEQ_ERR}.txt 
-rm outputs/wordlen_${WORD}_err_${SEQ_ERR}_temp.txt
+# process output
+awk -v OFS='\t' '{ print $1, $4, $5, $9, $10}' outputs/seedlen_${SEED_LEN}_err_${SEQ_ERR}_temp.txt > outputs/seedlen_${SEED_LEN}_err_${SEQ_ERR}.txt
+
+sed -i '1s/^/query\talign_len\tmismatches\ts. start\ts. end\n/' outputs/seedlen_${SEED_LEN}_err_${SEQ_ERR}.txt 
+
+rm outputs/seedlen_${SEED_LEN}_err_${SEQ_ERR}_temp.txt
 
 date
 
