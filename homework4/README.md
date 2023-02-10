@@ -69,7 +69,7 @@ You can use `less` to look at this file. Each row corresponds to an alignment of
 
 Remember, these reads were generated from the genome itself, so we'd "expect" one alignment for each that is of length 100, maybe with a few mismatches due to the error that we introduced. 
 
-**Part a: Does this match up with what you see in your output?**
+**Part a: Does this match up with what you see in your output? Why might you see additional alignments in your output?**
 
 ## Modifying the `.sbatch`  file and submitting more jobs
 
