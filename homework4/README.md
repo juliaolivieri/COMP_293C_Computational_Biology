@@ -36,7 +36,7 @@ You can try running the following command:
 
 A file called `rand_reads.fa` should have appeared in your directory. You can use `less` to look at it (remember, `q` quits out of `less`).
 
-You may have noticed the `error_rate` argument that we used in that command. This is a value in [0,1] that determines the fraction of bases that have been artificially changed. For example, if `error_rate = 0.1` then 10% of the bases will be switched to another base (and won't perfectly match the genome anymore). This is a parameter we'll change over the course of the assignment.
+You may have noticed the `error_rate` argument that we used in that command. This is a value in [0,1] that determines the fraction of bases that the script will artificially change in the reads. For example, if `error_rate = 0.1` then 10% of the bases will be switched to another base (and won't perfectly match the genome anymore). This is a parameter we'll change over the course of the assignment.
 
 ## Submitting a BLAST query
 
