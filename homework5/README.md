@@ -104,39 +104,3 @@ Modify your sbatch file to use this fasta file instead of `e_coli.fasta`. Submit
 
 **Part c: For which kmer length is the discrepancy between the most common kmer in the genome and randomized genome largest? Include the value of k, the highest frequency kmer in the genome (with its count), and the highest frequency kmer in the "randomized" genome (with its count).**
 
-In this assignment, you are going to:
-* Create an sbatch script to run this script.
-* Create directories for 
-* Run this script for multiple 
-
-Commands we've already used:
-* `cd`
-* `cd ~`
-* `cd ..`
-* `ls`
-* `mkdir`
-* `nano`
-* `history`
-* `less`
-* `cat`
-* `sbatch`
-* `wc -l`
-
-Goal for today: "Take the reins." Create your own submission script, submit it yourself, see where the output is.
-
-`python count_kmers.py --fasta ../homework2/e_coli/sequence.fasta --kmer_len 7`
-
-`wget https://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/annotation/GRCh38_latest/refseq_identifiers/GRCh38_latest_genomic.fna.gz`
-
-`wget https://hgdownload.soe.ucsc.edu/goldenPath/mm39/bigZips/mm39.fa.gz`
-
-`wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/215/GCF_000001215.4_Release_6_plus_ISO1_MT/GCF_000001215.4_Release_6_plus_ISO1_MT_genomic.fna.gz`
-
-du -sh
-`conda install tqdm` 
-
-`conda create --name hw5_env python=3`
-
-`conda activate hw5_env`
-
-`conda install -c conda-forge tqdm`
