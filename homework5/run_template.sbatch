@@ -5,7 +5,6 @@
 #SBATCH --error=job_output/JOB_NAME.%j.err
 #SBATCH --time=JOB_TIME
 #SBATCH --nodes=1
-#SBATCH --mem=JOB_MEM
 
 
 date

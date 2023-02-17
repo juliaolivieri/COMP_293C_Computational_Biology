@@ -1,6 +1,7 @@
 import argparse
 from collections import defaultdict
 import random
+import tqdm
 
 random.seed(123)
 
@@ -28,19 +29,20 @@ def main():
   # read in arguments
   args = get_args()
   
-  out_file = "{}/outputs/kmer_comp_{}.tsv".format(args.out_directory, args.kmer_len)
+  out_file = "{}/outputs/kmer_comp_{}_{}.tsv".format(args.out_directory, args.fasta.split("/")[-1].split(".")[0],args.kmer_len)
   seqs = read_fasta(args.fasta)
   
   # load genome
-  genome = "".join(seqs).upper()
+  genome = "".join(seqs).upper().replace("N","")
 
   # create "random" genome of the same length
-  rand_genome = "".join(random.choices(["A","C","T","G"],k=len(genome)))
+  rand_genome = "".join(random.sample(genome, len(genome)))
 
   # initialize kmer counts to 0
   kmer_counts = defaultdict(lambda : 0)
   rand_kmer_counts = defaultdict(lambda : 0)
 
+  print("counting kmers")
   # count each kmer in the genome and rand_genome
   for i in range(len(genome) - args.kmer_len + 1):
     kmer_counts[genome[i:i + args.kmer_len]] += 1
@@ -51,6 +53,7 @@ def main():
   out.write("kmer\tcount\trand_kmer\tcount\n")
   kmer_sorted = sorted(kmer_counts.items(), key=lambda x:x[1], reverse=True)
   rand_kmer_sorted = sorted(rand_kmer_counts.items(), key=lambda x:x[1], reverse=True)
+  print("writing output")
   for i in range(max(len(kmer_sorted),len(rand_kmer_sorted))):
     if i > len(kmer_sorted) - 1:
       out.write("\t\t{}\t{}\n".format(rand_kmer_sorted[i][0],rand_kmer_sorted[i][1])) 
