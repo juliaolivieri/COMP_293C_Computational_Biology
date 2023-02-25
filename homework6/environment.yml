@@ -1,0 +1,7 @@
+name: diffexp_env
+
+dependencies:
+  - bioconda::subread
+  - bioconda::bowtie2
+  - bioconda::samtools
+
