@@ -1,8 +1,8 @@
 import argparse
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import pandas as pd
 import scipy as sp
-import seaborn as sns
+#import seaborn as sns
 from statsmodels.stats.multitest import multipletests
 
 def get_args():
@@ -38,9 +38,9 @@ def main():
   print("Number of genes with corrected p values < 0.05: {}".format(outdf[outdf["p_value_corrected"] < 0.05].shape[0]))
 
   # create plot
-  g = sns.clustermap(plotdf[plotdf.index.isin(outdf[outdf["p_value_corrected"] < 0.05]["Geneid"])])
-  g.ax_row_dendrogram.set_visible(False)
-  g.ax_col_dendrogram.set_visible(False)
-  plt.savefig(args.outpath + ".png")  
+#  g = sns.clustermap(plotdf[plotdf.index.isin(outdf[outdf["p_value_corrected"] < 0.05]["Geneid"])])
+#  g.ax_row_dendrogram.set_visible(False)
+#  g.ax_col_dendrogram.set_visible(False)
+#  plt.savefig(args.outpath + ".png")  
 
 main()
