@@ -68,6 +68,3 @@ In the differential expression assignment from homework 6, we used an "index" to
    wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/differential_rnaseq/run_index.sbatch
    ```
 1. Submit the script to create the index and wait for it to complete: `sbatch run_index.sbatch`.
-
-rename files? paired-end
-
