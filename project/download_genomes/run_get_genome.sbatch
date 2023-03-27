@@ -4,7 +4,7 @@
 #SBATCH --output=download_genome.%j.out
 #SBATCH --error=download_genome.%j.err
 
-GENOME="ce11"
+GENOME="hg38"
 
 mkdir $GENOME
 cd $GENOME
