@@ -45,7 +45,14 @@ conda install -c bioconda sra-tools
 
 ## Renaming files
 
-3. The files will have cryptic names beginning with `SRR`. You can see the label of each file in the `<dataset name>_labels.csv` file in this GitHub folder.
+The files will have cryptic names beginning with `SRR`. There should be a file with the suffix `_1.fastq.gz` and one with the suffix `_2.fastq.gz` for each SRR number. It can be useful to give these files more informative names.
+
+1.  Check the label of each file in the `<dataset name>_labels.csv` file in this GitHub folder.
+1. To rename a file from `old_name.fastq.gz` to `new_name.fastq.gz`, we can use this command `mv old_name.fastq.gz new_name.fastq.gz`. For example, to rename `SRR16089879_1.fastq.gz` as `non_balding_C_1.fastq.gz`, you can run:
+   ```
+   mv SRR16089879_1.fastq.gz non_balding_C_1.fastq.gz
+   ```
+1. Rename each of your files according to their label.
 
 ## Creating the index
 
@@ -58,11 +65,9 @@ In the differential expression assignment from homework 6, we used an "index" to
 1. Next, run `sbatch run_get_genome.sbatch`. This will submit a job to download the fasta file from the human genome in a file called `hg38`. Wait until this job completes (you can check its progress with `squeue`). It may take a few hours.
 1. Once the genome is downloaded, we're ready to create our Bowtie2 index. Download the script to create the index by running:
    ```
-   
+   wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/differential_rnaseq/run_index.sbatch
    ```
-
-download files from accession list
+1. Submit the script to create the index and wait for it to complete: `sbatch run_index.sbatch`.
 
 rename files? paired-end
 
-download genome to create index
