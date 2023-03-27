@@ -38,6 +38,6 @@ To copy the file `foobar.txt` from `~/COMP_293C` on the cluster to your local co
 
 1. If you don't have it already, download WinSCP: https://winscp.net/eng/download.php. 
 2. Here is an example:
-   ![input parameters for winSCP](winSCP.png)
+   ![input parameters for winSCP](winSCP2.png)
 3. Directions for moving files from your local computer to the cluster: https://winscp.net/eng/docs/task_upload.
 4. Directions for moving files from the cluster to your local computer: https://winscp.net/eng/docs/task_download. 
