@@ -50,5 +50,6 @@ plt.show()
 ```
 
 The result of this code is:
+
 ![PCA clustering](clustering.png)
 
