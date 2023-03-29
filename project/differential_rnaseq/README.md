@@ -13,7 +13,7 @@ Dataset name | Species | Dataset description | Dataset link
 We'll start by downloading the software necessary to download the data into a new conda environment. Run each of the following commands (each one will take a bit of time, and you may need to type `y` to verify that you want to install the packages). 
 
 ```
-create --name sratools
+conda create --name sratools
 conda activate sratools
 conda install -c bioconda sra-tools
 ```
