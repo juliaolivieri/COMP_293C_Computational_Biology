@@ -56,6 +56,18 @@ For example, to download the file corresponding to `SRR16089879` the command wou
 ```
 wget https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR16089879/SRR16089879
 ```
+
+Then you can use `fastq-dump` to unpack the file:
+
+```
+fastq-dump --split-files --gzip <SRR number>
+```
+
+For example, if the SRR number was `SRR16089879` the command would be:
+```
+fastq-dump --split-files --gzip SRR16089879
+```
+
 ## Renaming files
 
 The files will have cryptic names beginning with `SRR`. There should be a file with the suffix `_1.fastq.gz` and one with the suffix `_2.fastq.gz` for each SRR number. It can be useful to give these files more informative names.
