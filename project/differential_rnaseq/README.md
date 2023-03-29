@@ -27,7 +27,7 @@ conda install -c bioconda sra-tools
    ```
    For example, to download the `balding` file you would run:
    ```
-   https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/differential_rnaseq/balding_AccList.txt
+   wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/differential_rnaseq/balding_AccList.txt
    ```
 1. Download the script that will submit download jobs:
    ```
