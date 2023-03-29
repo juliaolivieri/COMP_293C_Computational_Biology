@@ -15,7 +15,7 @@ We'll start by downloading the software necessary to download the data into a ne
 ```
 conda create --name sratools
 conda activate sratools
-conda install -c bioconda sra-tools
+conda install -c bioconda sra-tools=3.0.3
 ```
 
 ## Submit downloading jobs
