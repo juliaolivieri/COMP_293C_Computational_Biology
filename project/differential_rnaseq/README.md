@@ -44,6 +44,17 @@ conda install -c bioconda sra-tools=3.0.3
    ```
 1. The files should be starting to download. If you run `squeue`, you should see a bunch of jobs submitted under your username. Wait until all the jobs have finished running (this can take several hours).
 
+NOTE: If this doesn't work, you can try downloading the files using `wget`. Try running the following command for each SRR number in the `AccList` file:
+
+```
+wget https://sra-pub-run-odp.s3.amazonaws.com/sra/<SRR number>/<SRR number>
+```
+
+For example, to download the file corresponding to `SRR16089879` the command would be:
+
+```
+wget https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR16089879/SRR16089879
+```
 ## Renaming files
 
 The files will have cryptic names beginning with `SRR`. There should be a file with the suffix `_1.fastq.gz` and one with the suffix `_2.fastq.gz` for each SRR number. It can be useful to give these files more informative names.
