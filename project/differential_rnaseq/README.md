@@ -31,7 +31,7 @@ conda install -c bioconda sra-tools
    ```
 1. Download the script that will submit download jobs:
    ```
-   wget https://github.com/juliaolivieri/COMP_293C_Computational_Biology/edit/main/project/differential_rnaseq/sraWrapper.sh
+   https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/differential_rnaseq/sraWrapper.sh
    ```
 1. Run this script using your `AccList` file:
    ```
