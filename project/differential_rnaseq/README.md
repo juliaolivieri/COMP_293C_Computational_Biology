@@ -8,6 +8,7 @@ Dataset name | Species | Dataset description | Dataset link
 `covid_kidney` | Human | Data from kidneys of covid-positive patients and covid-negative patients | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE202182 
 `eczema` | Human | Data from skin samples of people with either eczema or psoriasis | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE223799 
 `multiple_sclerosis` | Human | Data from immune cells of people who do and do not have multiple sclerosis| https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE159225 
+`diabetes` | Rat | Data from rats with mechanical allodynia (P1, P2, P3), rats with diabetes but without mechanical allodynia (NP1, NP2, NP3), and controls (con1, con2, con3)| https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE226315
 
 ## Create conda environment
 We'll start by downloading the software necessary to download the data into a new conda environment. Run each of the following commands (each one will take a bit of time, and you may need to type `y` to verify that you want to install the packages). 
