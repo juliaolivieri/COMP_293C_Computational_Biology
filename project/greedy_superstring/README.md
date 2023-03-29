@@ -11,4 +11,4 @@ wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Bio
 wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/greedy_superstring/run_rand_reads.sbatch
 ```
 
-You can modify the input parameters in `run_rand_reads.sbatch` and submit it to generate the random reads.
+You can modify the input parameters in `run_rand_reads.sbatch` and submit it to generate the random reads. The reads should be created in the directory you submit the script from in a file called `rand_reads.fa`.
