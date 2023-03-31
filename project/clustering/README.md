@@ -11,7 +11,7 @@ And to only include genes with expression levels > 1000 across all cells.
 To download this data, run the following commands:
 
 ```
-wget https://github.com/juliaolivieri/COMP_293C_Computational_Biology/blob/main/project/clustering/gene_expression.csv.gz
+wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/clustering/gene_expression.csv.gz
 wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/clustering/cell_types.txt
 wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/clustering/gene_names.txt
 gunzip *.gz
