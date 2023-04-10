@@ -1,9 +1,12 @@
 import argparse
+import time
 
 def get_args():
     """Read in fasta path from command line"""
     parser = argparse.ArgumentParser()
     parser.add_argument("--fasta", help="path to fasta file", required=True)
+    parser.add_argument("--fasta_orig", help="path to original fasta file", required=True)
+
     parser.add_argument("--output", help="path to output", default="output.txt")
 
     args = parser.parse_args()
@@ -27,6 +30,7 @@ def calc_overlap(seq1, seq2):
     return 0
 
 def main():
+    t1 = time.time()
     args = get_args() # collect commandline arguments
     seqs = read_fasta(args.fasta) # collect sequences from fasta
 
@@ -47,7 +51,9 @@ def main():
         new_seq = seqs[ind1] + seqs[ind2][max_overlap:]
         seqs = [x for i, x in zip(range(len(seqs)),seqs) if i not in [ind1, ind2]]
         seqs.append(new_seq)
+    
     out = open(args.output, "w")
+    out.write("length: {}\nlength of original: {}\ntime: {}\n".format(len(seqs[0]),len("".join(read_fasta(args.fasta_orig))),time.time() - t1))
     out.write(seqs[0])
     out.close()
 main()
