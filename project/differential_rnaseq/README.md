@@ -32,7 +32,7 @@ Dataset name | Species | Dataset description | Dataset link | Google Drive link 
    ```
    tar -xvf hg38_index.tar.gz
    ```
-1. 
+1. Now that we have the data downloaded, we are ready to start our analysis. We can begin by aligning the reads to the genome. 
 
 
 ## Create conda environment
