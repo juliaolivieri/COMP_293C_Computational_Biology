@@ -15,8 +15,8 @@ Dataset name | Species | Dataset description | Dataset link | Google Drive link
 
 Genome name | Index Gdrive link | gtf link | index prefix
 --|--|--|--
-Human | | | `hg38/hg38`
-Rat | | | `rn6/rn6`
+Human | | https://github.com/juliaolivieri/COMP_293C_Computational_Biology/blob/main/project/differential_rnaseq/hg38.ensGene.gtf.gz | `hg38/hg38`
+Rat | | https://github.com/juliaolivieri/COMP_293C_Computational_Biology/blob/main/project/differential_rnaseq/rn6.ensGene.gtf.gz| `rn6/rn6`
 Mosquito | | |
 
 ## Steps for differential gene expression analysis
@@ -40,6 +40,11 @@ Mosquito | | |
    ```
    tar -xvf hg38_index.tar.gz
    ```
+1. Download the annotation file for your genome using the url in the table above, using `wget`. For example, if you are using human data, run:
+   ```
+   wget https://github.com/juliaolivieri/COMP_293C_Computational_Biology/blob/main/project/differential_rnaseq/hg38.ensGene.gtf.gz
+   ```
+   Run `gunzip *` to unzip the file.
 1. Next, we can download the scripts we'll need to perform differential expression analysis on our data:
    ```
    wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/differential_rnaseq/run_alignment.sbatch
