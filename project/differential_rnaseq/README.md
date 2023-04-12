@@ -31,7 +31,7 @@ Mosquito | | |
    ```
    tar -xvf balding_reads.tar.gz
    ```
-1. Find the Index Gdrive link for your data from the table above. Then run `gdown <index gdrive link>`. For example, if you were using Humandata, the command would be:
+1. Find the Index Gdrive link for your data from the table above. Then run `gdown <index gdrive link>`. For example, if you were using Human data, the command would be:
    ```
    gdown 
    ```
