@@ -17,7 +17,7 @@ Genome name | Index Gdrive link | gtf link | index prefix
 --|--|--|--
 Human | https://drive.google.com/uc?id=1n5CP2kAYq3KATO_S1OF0ptGIWUr_aVoz | https://github.com/juliaolivieri/COMP_293C_Computational_Biology/blob/main/project/differential_rnaseq/hg38.ensGene.gtf.gz | `hg38/hg38`
 Rat | https://drive.google.com/uc?id=10JD2tqGjD-8TQbfLtCcvTdsPW6Ct4H5H | https://github.com/juliaolivieri/COMP_293C_Computational_Biology/blob/main/project/differential_rnaseq/rn6.ensGene.gtf.gz| `rn6/rn6`
-Mosquito |*to be added* | *to be added*| *to be added*
+Mosquito |*to be added* | https://github.com/juliaolivieri/COMP_293C_Computational_Biology/blob/main/project/differential_rnaseq/GCF_006496715.2_Aalbo_primary.1_genomic.gtf.gz | `aedes_albo/aedes_albo`
 
 ## Steps for differential gene expression analysis
 
