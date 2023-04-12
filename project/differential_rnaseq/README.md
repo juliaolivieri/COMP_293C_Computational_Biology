@@ -2,14 +2,38 @@
 
 ## Dataset options
 
-Dataset name | Species | Dataset description | Dataset link | Google Drive link
---|--|--|--|--
-`balding` | Human | Data from balding and non-balding human skin cells  | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE184866 | https://drive.google.com/uc?id=1YEzez3UML4UITdkzeZibZJ950mq61oNG
-`covid_kidney` | Human | Data from kidneys of covid-positive patients and covid-negative patients | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE202182 | https://drive.google.com/uc?id=1x31euzPC7dT24DG2eJ5NaIQaUXi1Usj7
-`eczema` | Human | Data from skin samples of people with either eczema or psoriasis | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE223799 | https://drive.google.com/uc?id=1lE-Pv6VwePMzwKG3zfCdRD2rLj1fLbyw
-`multiple_sclerosis` | Human | Data from immune cells of people who do and do not have multiple sclerosis| https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE159225 | https://drive.google.com/uc?id=1uzUa5EvpMsCCbOsv5uNsqfH5pva5I9q1
-`diabetes` | Rat | Data from rats with mechanical allodynia (P1, P2, P3), rats with diabetes but without mechanical allodynia (NP1, NP2, NP3), and controls (con1, con2, con3)| https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE226315 | https://drive.google.com/uc?id=1mbQNKM91E1UHDQD3tCcHtP7yCEyaC-kI
-`mosquito` | Mosquito | Data from mosquito cells infected with the Eilat virus or not infected | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE220562 | https://drive.google.com/uc?id=1_LAGQ2Rf8FqKvNVY9Tvtqgq2oajxc8Ln
+Dataset name | Species | Dataset description | Dataset link | Google Drive link | Index Gdrive link
+--|--|--|--|--|--
+`balding` | Human | Data from balding and non-balding human skin cells  | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE184866 | https://drive.google.com/uc?id=1YEzez3UML4UITdkzeZibZJ950mq61oNG | 
+`covid_kidney` | Human | Data from kidneys of covid-positive patients and covid-negative patients | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE202182 | https://drive.google.com/uc?id=1x31euzPC7dT24DG2eJ5NaIQaUXi1Usj7 | 
+`eczema` | Human | Data from skin samples of people with either eczema or psoriasis | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE223799 | https://drive.google.com/uc?id=1lE-Pv6VwePMzwKG3zfCdRD2rLj1fLbyw | 
+`multiple_sclerosis` | Human | Data from immune cells of people who do and do not have multiple sclerosis| https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE159225 | https://drive.google.com/uc?id=1uzUa5EvpMsCCbOsv5uNsqfH5pva5I9q1 | 
+`diabetes` | Rat | Data from rats with mechanical allodynia (P1, P2, P3), rats with diabetes but without mechanical allodynia (NP1, NP2, NP3), and controls (con1, con2, con3)| https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE226315 | https://drive.google.com/uc?id=1mbQNKM91E1UHDQD3tCcHtP7yCEyaC-kI | 
+`mosquito` | Mosquito | Data from mosquito cells infected with the Eilat virus or not infected | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE220562 | https://drive.google.com/uc?id=1_LAGQ2Rf8FqKvNVY9Tvtqgq2oajxc8Ln | 
+
+## Steps for differential gene expression analysis
+
+1. Run `pip install gdown` to install the package required for downloading files from Google Drive.
+1. Find the Google Drive link for your data from the table above. Then run `gdown <google drive link>`. For example, if you were using the balding dataset, the command would be:
+   ```
+   gdown https://drive.google.com/uc?id=1YEzez3UML4UITdkzeZibZJ950mq61oNG
+   ```
+   This will download the RNA sequencing reads onto the cluster.
+1. Extract the reads from this file by running `tar -xvf <name of downloaded file>` on the cluster after the download has completed. For example,
+   ```
+   tar -xvf balding_reads.tar.gz
+   ```
+1. Find the Index Gdrive link for your data from the table above. Then run `gdown <index gdrive link>`. For example, if you were using the balding dataset, the command would be:
+   ```
+   gdown 
+   ```
+   This will download the required bowtie2 index onto the cluster.
+1. Extract the index from this file by running `tar -xvf <name of downloaded file>`. For example, if you were using the balding dataset, the command would be:
+   ```
+   tar -xvf hg38_index.tar.gz
+   ```
+1. 
+
 
 ## Create conda environment
 We'll start by downloading the software necessary to download the data into a new conda environment. Run each of the following commands (each one will take a bit of time, and you may need to type `y` to verify that you want to install the packages). 
