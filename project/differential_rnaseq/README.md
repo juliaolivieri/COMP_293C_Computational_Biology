@@ -32,7 +32,19 @@ Dataset name | Species | Dataset description | Dataset link | Google Drive link 
    ```
    tar -xvf hg38_index.tar.gz
    ```
-1. Now that we have the data downloaded, we are ready to start our analysis. We can begin by aligning the reads to the genome. 
+1. Next, we can download the scripts we'll need to perform differential expression analysis on our data:
+   ```
+   wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/differential_rnaseq/run_alignment.sbatch
+   wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/differential_rnaseq/run_gene_exp_mat.sbatch
+   wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/differential_rnaseq/run_ttest.sbatch
+   wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/differential_rnaseq/t_test.py
+   ```
+1. Now that we have the data downloaded, we are ready to start our analysis. Create a folder called `job_output` and a folder called `output`. We can begin by aligning the reads to the genome. Edit the `run_alignment.sbatch` file so that `INDEX` is equal to the index "prefix": for the human genome, this is `hg38_index/hg38`, for the rat genome this is `rn6/rn6`. Set `NAME` equal to the name of one of the files in the `reads` folder that you downloaded, not including the suffix `.fq`. For example, if `positive3.fq` is in  `reads`, then you can let `NAME=positive3` to align these reads. Submit the job with `sbatch run_alignment.sbatch`.
+1. Submit alignment jobs for all read files in the `reads` folder.
+1. Check for your jobs to complete using the `squeue` command. Once they have completed, you can edit the `run_gene_exp_mat.sbatch` file to let `GTF` equal the name of the gtf file you downloaded. For example, `hg38.ensGene.gtf`. Submit this job.
+1. Once this job completes, check that `output/ge.mat` is not empty. This is where the gene counts should be.
+1. Submit `run_ttest.sbatch` to calculate the table of p values from your output. This should result in a file called `diffexp.csv` in `output`.
+1. You can analyze the resulting table. What fraction of genes had p values < 0.05? Which genes have the lowest p values? Etc.
 
 
 ## Create conda environment
