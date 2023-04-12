@@ -15,9 +15,9 @@ Dataset name | Species | Dataset description | Dataset link | Google Drive link
 
 Genome name | Index Gdrive link | gtf link | index prefix
 --|--|--|--
-Human | https://drive.google.com/uc?id=1n5CP2kAYq3KATO_S1OF0ptGIWUr_aVoz | https://github.com/juliaolivieri/COMP_293C_Computational_Biology/blob/main/project/differential_rnaseq/hg38.ensGene.gtf.gz | `hg38/hg38`
-Rat | https://drive.google.com/uc?id=10JD2tqGjD-8TQbfLtCcvTdsPW6Ct4H5H | https://github.com/juliaolivieri/COMP_293C_Computational_Biology/blob/main/project/differential_rnaseq/rn6.ensGene.gtf.gz| `rn6/rn6`
-Mosquito | https://drive.google.com/uc?id=18oe-OUIXxD82jcMbaNf6IiMUKEmzo6JG | https://github.com/juliaolivieri/COMP_293C_Computational_Biology/blob/main/project/differential_rnaseq/GCF_006496715.2_Aalbo_primary.1_genomic.gtf.gz | `aedes_albo/aedes_albo`
+Human | https://drive.google.com/uc?id=1n5CP2kAYq3KATO_S1OF0ptGIWUr_aVoz | https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/differential_rnaseqq/hg38.ensGene.gtf.gz | `hg38/hg38`
+Rat | https://drive.google.com/uc?id=10JD2tqGjD-8TQbfLtCcvTdsPW6Ct4H5H | https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/differential_rnaseq/rn6.ensGene.gtf.gz| `rn6/rn6`
+Mosquito | https://drive.google.com/uc?id=18oe-OUIXxD82jcMbaNf6IiMUKEmzo6JG | https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/differential_rnaseq/GCF_006496715.2_Aalbo_primary.1_genomic.gtf.gz | `aedes_albo/aedes_albo`
 
 ## Steps for differential gene expression analysis
 
@@ -42,7 +42,7 @@ Mosquito | https://drive.google.com/uc?id=18oe-OUIXxD82jcMbaNf6IiMUKEmzo6JG | ht
    ```
 1. Download the annotation file for your genome using the url in the table above, using `wget`. For example, if you are using human data, run:
    ```
-   wget https://github.com/juliaolivieri/COMP_293C_Computational_Biology/blob/main/project/differential_rnaseq/hg38.ensGene.gtf.gz
+   wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/differential_rnaseq/hg38.ensGene.gtf.gz
    ```
    Run `gunzip *` to unzip the file.
 1. Next, we can download the scripts we'll need to perform differential expression analysis on our data:
