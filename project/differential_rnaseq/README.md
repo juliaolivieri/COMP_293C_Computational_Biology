@@ -2,14 +2,22 @@
 
 ## Dataset options
 
-Dataset name | Species | Dataset description | Dataset link | Google Drive link | Index Gdrive link
---|--|--|--|--|--
-`balding` | Human | Data from balding and non-balding human skin cells  | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE184866 | https://drive.google.com/uc?id=1YEzez3UML4UITdkzeZibZJ950mq61oNG | 
-`covid_kidney` | Human | Data from kidneys of covid-positive patients and covid-negative patients | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE202182 | https://drive.google.com/uc?id=1x31euzPC7dT24DG2eJ5NaIQaUXi1Usj7 | 
-`eczema` | Human | Data from skin samples of people with either eczema or psoriasis | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE223799 | https://drive.google.com/uc?id=1lE-Pv6VwePMzwKG3zfCdRD2rLj1fLbyw | 
-`multiple_sclerosis` | Human | Data from immune cells of people who do and do not have multiple sclerosis| https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE159225 | https://drive.google.com/uc?id=1uzUa5EvpMsCCbOsv5uNsqfH5pva5I9q1 | 
-`diabetes` | Rat | Data from rats with mechanical allodynia (P1, P2, P3), rats with diabetes but without mechanical allodynia (NP1, NP2, NP3), and controls (con1, con2, con3)| https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE226315 | https://drive.google.com/uc?id=1mbQNKM91E1UHDQD3tCcHtP7yCEyaC-kI | 
-`mosquito` | Mosquito | Data from mosquito cells infected with the Eilat virus or not infected | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE220562 | https://drive.google.com/uc?id=1_LAGQ2Rf8FqKvNVY9Tvtqgq2oajxc8Ln | 
+Dataset name | Species | Dataset description | Dataset link | Google Drive link
+--|--|--|--|--
+`balding` | Human | Data from balding and non-balding human skin cells  | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE184866 | https://drive.google.com/uc?id=1YEzez3UML4UITdkzeZibZJ950mq61oNG 
+`covid_kidney` | Human | Data from kidneys of covid-positive patients and covid-negative patients | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE202182 | https://drive.google.com/uc?id=1x31euzPC7dT24DG2eJ5NaIQaUXi1Usj7 
+`eczema` | Human | Data from skin samples of people with either eczema or psoriasis | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE223799 | https://drive.google.com/uc?id=1lE-Pv6VwePMzwKG3zfCdRD2rLj1fLbyw 
+`multiple_sclerosis` | Human | Data from immune cells of people who do and do not have multiple sclerosis| https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE159225 | https://drive.google.com/uc?id=1uzUa5EvpMsCCbOsv5uNsqfH5pva5I9q1 
+`diabetes` | Rat | Data from rats with mechanical allodynia (P1, P2, P3), rats with diabetes but without mechanical allodynia (NP1, NP2, NP3), and controls (con1, con2, con3)| https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE226315 | https://drive.google.com/uc?id=1mbQNKM91E1UHDQD3tCcHtP7yCEyaC-kI 
+`mosquito` | Mosquito | Data from mosquito cells infected with the Eilat virus or not infected | https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE220562 | https://drive.google.com/uc?id=1_LAGQ2Rf8FqKvNVY9Tvtqgq2oajxc8Ln 
+
+## Genome downloads
+
+Genome name | Index Gdrive link | gtf link | index prefix
+--|--|--|--
+Human | | | `hg38/hg38`
+Rat | | | `rn6/rn6`
+Mosquito | | |
 
 ## Steps for differential gene expression analysis
 
@@ -23,18 +31,30 @@ Dataset name | Species | Dataset description | Dataset link | Google Drive link 
    ```
    tar -xvf balding_reads.tar.gz
    ```
-1. Find the Index Gdrive link for your data from the table above. Then run `gdown <index gdrive link>`. For example, if you were using the balding dataset, the command would be:
+1. Find the Index Gdrive link for your data from the table above. Then run `gdown <index gdrive link>`. For example, if you were using Humandata, the command would be:
    ```
    gdown 
    ```
    This will download the required bowtie2 index onto the cluster.
-1. Extract the index from this file by running `tar -xvf <name of downloaded file>`. For example, if you were using the balding dataset, the command would be:
+1. Extract the index from this file by running `tar -xvf <name of downloaded file>`. For example, if you were using human, the command would be:
    ```
    tar -xvf hg38_index.tar.gz
    ```
-1. Now that we have the data downloaded, we are ready to start our analysis. We can begin by aligning the reads to the genome. 
+1. Next, we can download the scripts we'll need to perform differential expression analysis on our data:
+   ```
+   wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/differential_rnaseq/run_alignment.sbatch
+   wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/differential_rnaseq/run_gene_exp_mat.sbatch
+   wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/differential_rnaseq/run_ttest.sbatch
+   wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/differential_rnaseq/t_test.py
+   ```
+1. Now that we have the data downloaded, we are ready to start our analysis. Create a folder called `job_output` and a folder called `output`. We can begin by aligning the reads to the genome. Edit the `run_alignment.sbatch` file so that `INDEX` is equal to the index "prefix" (available in the table above). Set `NAME` equal to the name of one of the files in the `reads` folder that you downloaded, not including the suffix `.fq`. For example, if `positive3.fq` is in  `reads`, then you can let `NAME=positive3` to align these reads. Submit the job with `sbatch run_alignment.sbatch`.
+1. Submit alignment jobs for all read files in the `reads` folder.
+1. Check for your jobs to complete using the `squeue` command. Once they have completed, you can edit the `run_gene_exp_mat.sbatch` file to let `GTF` equal the name of the gtf file you downloaded. For example, `hg38.ensGene.gtf`. Submit this job.
+1. Once this job completes, check that `output/ge.mat` is not empty. This is where the gene counts should be.
+1. Submit `run_ttest.sbatch` to calculate the table of p values from your output. This should result in a file called `diffexp.csv` in `output`.
+1. You can analyze the resulting table. What fraction of genes had p values < 0.05? Which genes have the lowest p values? Etc.
 
-
+<!--
 ## Create conda environment
 We'll start by downloading the software necessary to download the data into a new conda environment. Run each of the following commands (each one will take a bit of time, and you may need to type `y` to verify that you want to install the packages). 
 
@@ -117,3 +137,5 @@ In the differential expression assignment from homework 6, we used an "index" to
    wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/differential_rnaseq/run_index.sbatch
    ```
 1. Submit the script to create the index and wait for it to complete: `sbatch run_index.sbatch`.
+
+-->
