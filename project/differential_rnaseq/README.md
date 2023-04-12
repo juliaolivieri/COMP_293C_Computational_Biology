@@ -33,7 +33,7 @@ Mosquito | https://drive.google.com/uc?id=18oe-OUIXxD82jcMbaNf6IiMUKEmzo6JG | ht
    ```
 1. Find the Index Gdrive link for your data from the table above. Then run `gdown <index gdrive link>`. For example, if you were using Human data, the command would be:
    ```
-   gdown *to be added*
+   gdown https://drive.google.com/uc?id=1n5CP2kAYq3KATO_S1OF0ptGIWUr_aVoz
    ```
    This will download the required bowtie2 index onto the cluster.
 1. Extract the index from this file by running `tar -xvf <name of downloaded file>`. For example, if you were using human, the command would be:
