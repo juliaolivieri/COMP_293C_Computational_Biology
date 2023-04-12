@@ -15,9 +15,9 @@ Dataset name | Species | Dataset description | Dataset link | Google Drive link
 
 Genome name | Index Gdrive link | gtf link | index prefix
 --|--|--|--
-Human | | https://github.com/juliaolivieri/COMP_293C_Computational_Biology/blob/main/project/differential_rnaseq/hg38.ensGene.gtf.gz | `hg38/hg38`
-Rat | | https://github.com/juliaolivieri/COMP_293C_Computational_Biology/blob/main/project/differential_rnaseq/rn6.ensGene.gtf.gz| `rn6/rn6`
-Mosquito | | |
+Human | *to be added*| https://github.com/juliaolivieri/COMP_293C_Computational_Biology/blob/main/project/differential_rnaseq/hg38.ensGene.gtf.gz | `hg38/hg38`
+Rat | *to be added*| https://github.com/juliaolivieri/COMP_293C_Computational_Biology/blob/main/project/differential_rnaseq/rn6.ensGene.gtf.gz| `rn6/rn6`
+Mosquito |*to be added* | *to be added*| *to be added*
 
 ## Steps for differential gene expression analysis
 
@@ -33,7 +33,7 @@ Mosquito | | |
    ```
 1. Find the Index Gdrive link for your data from the table above. Then run `gdown <index gdrive link>`. For example, if you were using Human data, the command would be:
    ```
-   gdown 
+   gdown *to be added*
    ```
    This will download the required bowtie2 index onto the cluster.
 1. Extract the index from this file by running `tar -xvf <name of downloaded file>`. For example, if you were using human, the command would be:
