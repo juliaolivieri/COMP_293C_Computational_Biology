@@ -46,7 +46,7 @@ Dataset name | Species | Dataset description | Dataset link | Google Drive link 
 1. Submit `run_ttest.sbatch` to calculate the table of p values from your output. This should result in a file called `diffexp.csv` in `output`.
 1. You can analyze the resulting table. What fraction of genes had p values < 0.05? Which genes have the lowest p values? Etc.
 
-
+<!--
 ## Create conda environment
 We'll start by downloading the software necessary to download the data into a new conda environment. Run each of the following commands (each one will take a bit of time, and you may need to type `y` to verify that you want to install the packages). 
 
@@ -129,3 +129,5 @@ In the differential expression assignment from homework 6, we used an "index" to
    wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/project/differential_rnaseq/run_index.sbatch
    ```
 1. Submit the script to create the index and wait for it to complete: `sbatch run_index.sbatch`.
+
+-->
