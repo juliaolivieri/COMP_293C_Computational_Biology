@@ -65,7 +65,18 @@ We can submit this script using `sbatch run_ttest.sbatch`. It should take a few 
 
 ## Understanding the output
 
-There should be several new files in the `output` directory. `diffexp.csv` includes one line per gene, ordered from lowest p value (most significant) to highest p value (least significant). The first column shows the gene id, the second shows the p value, and the third shows the p value corrected for multiple hypothesis testing.
+There should be several new files in the `output` directory. If there are not: you may get an error for not having all of the libraries installed. Run the following commands to install the necessary libraries: 
+
+```
+conda activate diffexp_env
+conda install pandas
+conda install statsmodels
+conda install scipy
+```
+
+If it still isn't working, you can try running this command directly from the command line in your `homework6` directory: `python t_test.py --exp_matrix output/ge.mat --outpath output/diffexp`
+
+`diffexp.csv` includes one line per gene, ordered from lowest p value (most significant) to highest p value (least significant). The first column shows the gene id, the second shows the p value, and the third shows the p value corrected for multiple hypothesis testing.
 
 **Part a: What is the gene identifier with the lowest p value (indicating most significant difference between tumor and non-tumor samples in our dataset)? Search for it on the Gene Cards website to find its "common" name: https://www.genecards.org/**
 
