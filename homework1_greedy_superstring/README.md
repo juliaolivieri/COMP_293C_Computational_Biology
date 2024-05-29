@@ -214,9 +214,9 @@ We will enter the folder we just created using the `cd` command:
 
 Run the following two commands to download the two files:
 
-`$ wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/homework1/test_fasta.fa`
+`$ wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/homework1_greedy_superstring/test_fasta.fa`
 
-`$ wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/homework1/greedy_superstring.py`
+`$ wget https://raw.githubusercontent.com/juliaolivieri/COMP_293C_Computational_Biology/main/homework1_greedy_superstring/greedy_superstring.py`
 
 You can use the `ls` command to show the files present in the current folder. You should see `test_fasta.fa` and `greedy_superstring.py` present.
 
